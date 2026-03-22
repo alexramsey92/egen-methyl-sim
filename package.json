@@ -1,0 +1,1 @@
+{\n  "name": "egen-methyl-sim",\n  "version": "1.0.0",\n  "scripts": {\n    "dev": "vite",\n    "build": "vite build",\n    "preview": "vite preview"\n  },\n  "dependencies": {\n    "react": "^18.0.0",\n    "react-dom": "^18.0.0"\n  },\n  "devDependencies": {\n    "vite": "^2.0.0",\n    "typescript": "^4.0.0",\n    "@vitejs/plugin-react": "^1.0.0"\n  }\n}
