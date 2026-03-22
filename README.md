@@ -1,38 +1,51 @@
-# Gene Silencing Methylation Simulation
+# egen-methyl-sim
 
-## Project Description
-The Gene Silencing Methylation Simulation project aims to provide a comprehensive tool for simulating the effects of methylation on gene expression, particularly during environmental events such as famine. This project will facilitate research in epigenetics and provide insights into gene regulation mechanisms.
+Interactive epigenetic methylation simulator showing how environmental shocks can influence gene silencing across generations.
 
-## Features
-- **Gene Expression Simulation**: Model the impact of methylation on gene expression.
-- **Environmental Shock Simulation**: Simulate various environmental conditions including famine events.
-- **Data Visualization**: Planned web app to visualize simulation results in an interactive format.
-- **User-Friendly Interface**: Intuitive UI to guide users through the simulation process.
+## What this is
+This project is a **toy epigenetics simulator** meant for intuition-building and public outreach, with enough structure to be academically interpretable.
 
-## Planned Web App Visualization
-The web application will present the simulation results visually, allowing users to:
-- View the effects of methylation on gene expression over time.
-- Analyze data arising from famine event simulations and compare against control scenarios.
-- Download results in various formats for further analysis.
+- We simulate a single lineage across discrete **generations**.
+- Each site can be unmethylated / hemimethylated / fully methylated.
+- Methylation is treated as a **gene-silencing mark** (proxy):
+  - `silencing = mean(methylation)`
+  - `expression = 1 - silencing`
+- A configurable event window (e.g. a famine) temporarily changes methylation dynamics.
 
-## Installation Instructions
-To install the Gene Silencing Methylation Simulation project, follow these steps:
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/alexramsey92/egen-methyl-sim.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd egen-methyl-sim
-   ```
-3. Install the necessary dependencies:
+## How the “event” works (public-friendly)
+Think of DNA as a cookbook and methylation as sticky-note annotations that tend to *mute* certain recipes. A major event (e.g. famine) can change how frequently those notes are added/removed/copied. Even when the event ends, copies can carry the altered annotation pattern forward for some time.
+
+## Scientific grounding (careful wording)
+- DNA methylation is a widely studied epigenetic mark and is **often associated** with transcriptional repression, especially when occurring in regulatory contexts. The relationship is **context dependent**.
+- Maintenance methylation during DNA replication provides a mechanism for marks to be copied across cell divisions; the extent to which environmentally induced marks persist across generations varies by organism, locus, and developmental context.
+- This simulator does **not** claim any specific historical event (including the Irish potato famine) caused a particular methylation pattern; the “event” is an intuitive way to explore *how rate changes could propagate* in a simplified model.
+
+## Turnkey local dev (Laravel Herd)
+This repo is structured to be run as a static web app served locally.
+
+### Prereqs
+- **Laravel Herd** installed
+- **Node.js** (LTS) + npm
+
+### Run
+1. In Herd, add this repository as a site (any local domain is fine).
+2. Install dependencies:
    ```bash
    npm install
    ```
-4. Run the application:
+3. Start the dev server:
    ```bash
-   npm start
+   npm run dev
    ```
+4. Open the Herd site URL.
 
-## Usage
-Once you have installed the project, you can start simulating methylation effects by accessing the web application in your browser at `http://localhost:3000`. Follow the on-screen instructions to set your simulation parameters, and visualize the results accordingly.
+> Note: if you prefer, you can also run without Herd using `npm run dev` and open the localhost URL Vite prints.
+
+## Planned MVP UI
+- Heatmap: CpG/site index × generation, color = methylation level (0, 0.5, 1)
+- Line: expression proxy vs generation
+- Shaded event window
+- Sliders for parameters + random seed
+
+## License
+TBD
