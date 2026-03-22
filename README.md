@@ -1,6 +1,7 @@
 # egen-methyl-sim
 
 <img width="1824" height="1286" alt="Screenshot 2026-03-22 155214" src="https://github.com/user-attachments/assets/258cf693-fe0a-4c31-b69a-90ff7c75d670" />
+<img width="1221" height="949" alt="Screenshot 2026-03-22 155922" src="https://github.com/user-attachments/assets/3b09b0eb-1ea4-4460-9288-561bc4f503c2" />
 
 
 Interactive epigenetic methylation simulator showing how environmental shocks can influence gene silencing across generations.
